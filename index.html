@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    button {
+        position: fixed;
+        width: calc((98vw - (2vw)*6)/6);
+        height: calc(20vh - 4vw);
+        z-index: index 2;
+        border-radius: 2vw; 
+        background-color: rgb(30,36,72);
+        border: 0;
+        color: white;
+        font-weight:bolder;
+        font-size: 2vw;
+    };
+</style>
+</head>
+<body>
+
+<div style=" 
+width: 100vw; 
+height: 100vh;
+position: fixed;
+left:0;
+top:0;
+background-color: rgb(50,60,80);
+z-index:index 0;
+"></div>
+
+<div style="
+width: 96vw; 
+height: calc(80vh - 2vw);
+position: fixed;
+left:2vw;
+top: 20vh;
+background-color: rgb(80,100,150);
+z-index:index 1;
+border-radius: 2vw;
+"></div> 
+<strong>
+<div id = "title" style="
+width: 96vw; 
+height: 15vh;
+position: fixed;
+left:2vw;
+top: 20vh;
+background-color: rgba(0,0,0,0);
+z-index:index 2;
+color: white;
+font-size: 5.5vw;
+text-align: center;
+">title</div> 
+</strong>
+
+<div id = "text" style="
+width: 90vw; 
+height: calc(80vh - (15vh + 2vw));
+position: fixed;
+left:5vw;
+top: 35vh;
+background-color: rgba(0,0,0,0);
+z-index:index 2;
+color: white;
+font-size: 3.75vw;
+text-align: left;
+">text text text!!</div> 
+
+<button id = "home" style="top: 2vw; left: 2vw; background-color: rgb(20,24,48)">home</button>
+<button id = "button1" style="top: 2vw; left: calc(2vw + ((98vw - (2vw)*6)/6 + 2vw));">PTSD</button>
+<button id = "button2" style="top: 2vw; left: calc(2vw + 2 * ((98vw - (2vw)*6)/6 + 2vw));">Survivor Guilt</button>
+<button id = "button3" style="top: 2vw; left: calc(2vw + 3 * ((98vw - (2vw)*6)/6 + 2vw));">Separation Anxiety</button>
+<button id = "button4" style="top: 2vw; left: calc(2vw + 4 * ((98vw - (2vw)*6)/6 + 2vw)); font-size: 1.5vw">Intergenerational Trauma</button>
+<button id = "button5" style="top: 2vw; left: calc(2vw + 5 * ((98vw - (2vw)*6)/6 + 2vw));">Cited Sources</button>
+
+<button id = "full" style="
+background-color: rgb(20,24,48);
+position: fixed;
+width: 15vw;
+height: 5vh;
+bottom: 4vw;
+left: 4vw;
+">full</button>
+
+<button id = "summary" style="
+position: fixed;
+width: 15vw;
+height: 5vh;
+bottom: 4vw;
+left: 21vw;
+">summary</button>
+
+<button id = "textup" style="
+position: fixed;
+width: 15vw;
+height: 5vh;
+bottom: 4vw;
+right: 4vw;
+">text +</button>
+
+<button id = "textdown" style="
+position: fixed;
+width: 15vw;
+height: 5vh;
+bottom: 4vw;
+right: 21vw;
+">text -</button>
+
+<script>
+    const homebutton = document.getElementById("home");
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    const button3 = document.getElementById("button3");
+    const button4 = document.getElementById("button4");
+    const button5 = document.getElementById("button5");
+    const title = document.getElementById("title");
+    const text = document.getElementById("text");
+    const full = document.getElementById("full");    
+    const summary = document.getElementById("summary");
+    const textdown = document.getElementById("textdown");    
+    const textup = document.getElementById("textup");
+
+
+    const tihome = "The Psycholocal Effects on Survivors";
+    const tehome = "Genocide can have many mental effects on survivors long after the initial genocide ends. These mental effects can last for their entire lives and can pass through generations. It can lead to personality changes, fear, self harm, violence, and many other massive psychological impacts. These effects are listed under four main categories: PTSD, survivors guilt, separation anxiety, and intergenerational trauma. Click the buttons above to read about each topic. ";
+    const tehomes = "Genocides can pose many mental effects on genocide survivors including PTSD, survivors guilt, separation anxiety, and intergenerational trauma. They each have a huge impact on a survivor’s physical and mental life. Click the buttons above to read about each topic. ";
+    const ti1 = "PTSD";
+    const te1 = "PTSD, or post traumatic stress disorder,  is the most impactful and well known of the four major impacts. It causes flashbacks, nightmares, numbing, hyper-vigilance, and anxiety, which can cause survivors to fear certain items or places and will commonly avoid them. From a study from the Rwandan Genocide, approximately 37% of survivors were affected by PTSD, 66% of whom where women. Although, if people get the correct help, they can be treated for PTSD.";
+    const te1s = "PTSD is the biggest of the four main effects. It can cause flashbacks, nightmares, numbing, hyper-vigilance, and anxiety, causing survivors to fear certain places or objects and will commonly avoid them. One study found that around 37% of survivors are affected by PTSD, with 66% being women. Although PTSD can be treated.";
+    const ti2 = "Survivor Guilt";
+    const te2 = "Survivor’s guilt is the guilt of losing a loved one, like friends or family. It can cause people to feel responsible for the loss of another or to feel that they should have died rather than their loved one. Those affected may obsess over how they could have saved someone they lost. Survivor’s guilt is also very closely related to PTSD, including flashbacks, nightmares, and intrusive thoughts. ";
+    const te2s = "Survivor’s guilt is the guilt over the loss of a loved one. Victims may feel responsible for the death of another or felt they should have died instead. They may obsess over ways they could have saved them. Survivor’s guilt is also very closely related to PTSD, including flashbacks, nightmares, and intrusive thoughts.";
+    const ti3 = "Separation Anxiety";
+    const te3 = "Separation anxiety is caused by the separation of a parent, child, or another closely related person. It can lead to anxiety, depression, and nausea. From a study from the Rwandan Genocide, 94% of survivors witnessed a family member dying.";
+    const te3s = "Separation anxiety is caused by the separation of a loved one. It can cause anxiety, depression, and nausea. A study in the Rwandan Genocide showed 94% of people witnessed the death of a family member.";
+    const ti4 = "Intergenerational Trauma";
+    const te4 = "Intergenerational trauma is the product of trauma getting passed down to a newer generation, even though the new generation never experienced the initial event. A child may feel less safe and can have reduced tolerance towards other people, commonly people of other races.";
+    const te4s = "Intergenerational trauma is when trauma gets passed down to a survivor’s children. The child may not feel as safe and can have less tolerance towards other people, more commonly towards other races.";
+    const ti5 = "Cited Sources";
+    const citations = ["christinemmalone.com. “Survivor’s Guilt in the Aftermath of War and Genocide.” Christinemmalone.com, 2024, christinemmalone.com/blog/f/survivors-guilt-in-the-aftermath-of-war-and-genocide.","Cohen, Ariel Reuveni, et al. “The Psychological Impacts of Genocides | OxJournal.” Www.oxjournal.org, 3 Apr. 2024, www.oxjournal.org/the-psychological-impacts-of-genocides/.","Kim, Thida, and Lucy P Jordan. “A Systematic Review on Intergenerational Transmission of Genocide-Related Trauma.” Trauma, violence & abuse, 15248380251361043. 18 Sep. 2025, doi:10.1177/15248380251361043","Musanabaganwa, Clarisse et al. “Burden of post-traumatic stress disorder in postgenocide Rwandan population following exposure to 1994 genocide against the Tutsi: A meta-analysis.” Journal of affective disorders vol. 275 (2020): 7-13. doi:10.1016/j.jad.2020.06.017","Ng, Lauren C., et al. “Life after Genocide: Mental Health, Education, and Social Support of Orphaned Survivors.” International Perspectives in Psychology: Research, Practice, Consultation, vol. 4, no. 2, Apr. 2015, pp. 83–97, https://doi.org/10.1037/ipp0000031."];
+
+
+    let page = 0;
+    let short = false;
+    let textsize = 3.75;
+    const texts = [tehome,te1,te2,te3,te4];
+    const summaries = [tehomes,te1s,te2s,te3s,te4s];
+    const titles = [tihome,ti1,ti2,ti3,ti4,ti5];
+
+
+    function edittext() {
+        title.textContent = titles[page];
+        if (page == 5) {
+            text.textContent = "";
+            text.style.fontSize = String(textsize/2) + "vw";
+            citations.forEach(cite => {
+                let p = document.createElement("p");
+                p.innerText = cite;
+                p.style.fontFamily = "'Times New Roman', Times, serif";
+                p.style.fontlineHeight = "2";
+                p.style.paddingLeft = "2em";
+                p.style.textIndent = "-2em";
+                p.style.marginBottom = "1em";
+                text.appendChild(p);
+            });
+        }
+        else {
+            if (short) {
+                text.textContent = summaries[page];
+            }
+            else {
+                text.textContent = texts[page];
+            };
+            text.style.fontSize = String(textsize) + "vw";
+        }
+    }
+
+    edittext();
+
+    homebutton.addEventListener("click",function(){
+        page = 0;
+        edittext();
+        homebutton.style.backgroundColor = "rgb(20,24,48)";
+        button1.style.backgroundColor = "rgb(30,36,72)";
+        button2.style.backgroundColor = "rgb(30,36,72)";
+        button3.style.backgroundColor = "rgb(30,36,72)";
+        button4.style.backgroundColor = "rgb(30,36,72)";
+        button5.style.backgroundColor = "rgb(30,36,72)";
+    });
+    button1.addEventListener("click",function(){
+        page = 1;
+        edittext();
+        button1.style.backgroundColor = "rgb(20,24,48)";
+        homebutton.style.backgroundColor = "rgb(30,36,72)";
+        button2.style.backgroundColor = "rgb(30,36,72)";
+        button3.style.backgroundColor = "rgb(30,36,72)";
+        button4.style.backgroundColor = "rgb(30,36,72)";
+        button5.style.backgroundColor = "rgb(30,36,72)";
+    });
+    button2.addEventListener("click",function(){
+        page = 2;
+        edittext();
+        button2.style.backgroundColor = "rgb(20,24,48)";
+        homebutton.style.backgroundColor = "rgb(30,36,72)";
+        button1.style.backgroundColor = "rgb(30,36,72)";
+        button3.style.backgroundColor = "rgb(30,36,72)";
+        button4.style.backgroundColor = "rgb(30,36,72)";
+        button5.style.backgroundColor = "rgb(30,36,72)";
+    });
+    button3.addEventListener("click",function(){
+        page = 3;
+        edittext();
+        button3.style.backgroundColor = "rgb(20,24,48)";
+        homebutton.style.backgroundColor = "rgb(30,36,72)";
+        button1.style.backgroundColor = "rgb(30,36,72)";
+        button2.style.backgroundColor = "rgb(30,36,72)";
+        button4.style.backgroundColor = "rgb(30,36,72)";
+        button5.style.backgroundColor = "rgb(30,36,72)";
+    });
+    button4.addEventListener("click",function(){
+        page = 4;
+        edittext();
+        button4.style.backgroundColor = "rgb(20,24,48)";
+        homebutton.style.backgroundColor = "rgb(30,36,72)";
+        button1.style.backgroundColor = "rgb(30,36,72)";
+        button2.style.backgroundColor = "rgb(30,36,72)";
+        button3.style.backgroundColor = "rgb(30,36,72)";
+        button5.style.backgroundColor = "rgb(30,36,72)";
+    });
+    button5.addEventListener("click",function(){
+        page = 5;
+        edittext();
+        button5.style.backgroundColor = "rgb(20,24,48)";
+        homebutton.style.backgroundColor = "rgb(30,36,72)";
+        button1.style.backgroundColor = "rgb(30,36,72)";
+        button2.style.backgroundColor = "rgb(30,36,72)";
+        button3.style.backgroundColor = "rgb(30,36,72)";
+        button4.style.backgroundColor = "rgb(30,36,72)";
+    });
+    full.addEventListener("click",function(){
+        short = false;
+        edittext();
+        full.style.backgroundColor = "rgb(20,24,48)";
+        summary.style.backgroundColor = "rgb(30,36,72)";
+    });
+    summary.addEventListener("click",function(){
+        short = true;
+        edittext();
+        summary.style.backgroundColor = "rgb(20,24,48)";
+        full.style.backgroundColor = "rgb(30,36,72)";
+    });
+    textup.addEventListener("click",function(){
+        textsize += .25;
+        if (page == 5) {
+            text.style.fontSize = String(textsize/2) + "vw";
+        }
+        else{
+            text.style.fontSize = String(textsize) + "vw";
+        };
+    });
+    textdown.addEventListener("click",function(){
+        textsize -= .25;
+        if (page == 5) {
+            text.style.fontSize = String(textsize/2) + "vw";
+        }
+        else{
+            text.style.fontSize = String(textsize) + "vw";
+        };
+    });
+</script>
+
+</body>
+</html>
